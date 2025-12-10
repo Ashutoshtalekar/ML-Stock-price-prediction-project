@@ -1,13 +1,12 @@
 # ML-Stock-price-prediction-project
-Intro to ML 
 
 Comparative Analysis of Machine Learning Models for Stock Price Prediction
 This repository contains code and experiments comparing ARIMA, XGBoost, and SVR models for predicting Apple (AAPL) stock prices and returns using 10 years of daily OHLCV data, plus a simple ensemble/strategy derived from these models.​
 
-Project Goal
+#Project Goal
 Evaluate which model (or combination of models) provides the most accurate and practically useful forecasts for investment decisions, and translate these forecasts into simple, strategy-relevant insights.​
 
-Data
+# Data
 Asset: AAPL
 
 Horizon: ~10 years of daily OHLCV data from 2015‑12‑09 to present
@@ -18,8 +17,9 @@ Fields: Date, Open, High, Low, Close, Volume
 
 Engineered features (for XGBoost/SVR/ensemble): returns, moving averages, EMAs, MACD, RSI, rolling volatility, and lagged prices/returns.​
 
-Models and Strategy
-ARIMA (Close price)
+# Models and Strategy
+
+**ARIMA (Close price)**:
 
 Daily close, 85/15 train–test, rolling one-step-ahead forecasting.​
 
@@ -27,7 +27,7 @@ Metrics: RMSE 3.99, MAE 2.72, MAPE 1.224%, R² 0.964, accuracy 98.78%.​
 
 Role: Linear baseline and trend-following component.​
 
-XGBoost (Close price + features)
+**XGBoost (Close price + features)**:
 
 Train on data before 2023, test on 2023–2024 with technical and lag features.​
 
@@ -35,7 +35,7 @@ Metrics: RMSE 4.58, MAE 2.96, MAPE 1.563%, R² 0.973.​
 
 Role: Nonlinear, feature-driven component capturing momentum and complex patterns.​
 
-SVR (Returns)
+**SVR (Returns)**:
 
 Linear kernel on engineered return features.​
 
@@ -47,7 +47,7 @@ Ensemble / Strategy Layer
 
 Combines ARIMA and XGBoost forecasts (ensemble) and uses SVR return predictions to adjust risk stance.​
 
-Intended use:
+# Intended use:
 
 ARIMA for baseline trend.
 
@@ -55,14 +55,15 @@ XGBoost for nonlinear adjustments and momentum.
 
 SVR to moderate exposure during high‑volatility regimes.​
 
-Model Comparison
+#Model Comparison
+
 All quantitative model comparison is performed between ARIMA, XGBoost, and SVR on the AAPL dataset.​
 
 Diebold–Mariano test on squared errors shows ARIMA has significantly lower expected squared error than XGBoost at the 1% level (mean difference −9.57, t = −2.88, p = 0.0043).​
 
 7‑day forecasts diverge: ARIMA predicts a mild move toward ~280 USD, XGBoost toward ~270 USD, illustrating different risk/return profiles that the ensemble and strategy seek to reconcile.​
 
-How to Run
+#How to Run
 bash
 git clone https://github.com/<user>/<repo>.git
 cd <repo>
@@ -75,11 +76,13 @@ pip install -r requirements.txt
 python scripts/run_arima.py
 python scripts/run_xgboost.py
 python scripts/run_svr.py
+
 # optional: ensemble/strategy script
 python scripts/run_ensemble_strategy.py
-Roles
-Ashutosh Talekar: Data pipeline, ARIMA, ARIMA–XGBoost ensemble, hypothesis testing, SVR demo.​
 
-Julia Knox: Data prep, XGBoost, report and documentation.​
+# Roles
+Ashutosh Talekar: Data pipeline, ARIMA, hypothesis testing​, Build final ensemble combining all three models
 
-Bhavya Grover: SVR model and SVR comparison/interpretation.​
+Julia Knox: Data prep, XGBoost, report and documentation
+
+Bhavya Grover: SVR model, create full evaluation (RMSE, MAE, MAPE, R²), final comparison and results
