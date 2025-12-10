@@ -3,7 +3,7 @@
 Comparative Analysis of Machine Learning Models for Stock Price Prediction
 This repository contains code and experiments comparing ARIMA, XGBoost, and SVR models for predicting Apple (AAPL) stock prices and returns using 10 years of daily OHLCV data, plus a simple ensemble/strategy derived from these models.​
 
-#Project Goal
+# Project Goal
 Evaluate which model (or combination of models) provides the most accurate and practically useful forecasts for investment decisions, and translate these forecasts into simple, strategy-relevant insights.​
 
 # Data
