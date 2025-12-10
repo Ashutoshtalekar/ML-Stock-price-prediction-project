@@ -63,7 +63,7 @@ Diebold–Mariano test on squared errors shows ARIMA has significantly lower exp
 
 7‑day forecasts diverge: ARIMA predicts a mild move toward ~280 USD, XGBoost toward ~270 USD, illustrating different risk/return profiles that the ensemble and strategy seek to reconcile.​
 
-#How to Run
+# How to Run
 bash
 git clone https://github.com/<user>/<repo>.git
 cd <repo>
@@ -76,9 +76,6 @@ pip install -r requirements.txt
 python scripts/run_arima.py
 python scripts/run_xgboost.py
 python scripts/run_svr.py
-
-# optional: ensemble/strategy script
-python scripts/run_ensemble_strategy.py
 
 # Roles
 Ashutosh Talekar: Data pipeline, ARIMA, hypothesis testing​, Build final ensemble combining all three models
