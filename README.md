@@ -47,7 +47,7 @@ Ensemble / Strategy Layer
 
 Combines ARIMA and XGBoost forecasts (ensemble) and uses SVR return predictions to adjust risk stance.​
 
-# Intended use:
+# Intended use
 
 ARIMA for baseline trend.
 
